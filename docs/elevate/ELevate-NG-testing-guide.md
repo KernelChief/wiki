@@ -2,8 +2,6 @@
 title: "ELevate NG Testing Guide"
 ---
 
-###### last updated: 2025-07-03
-
 # ELevate NG Testing Guide
 
 ::: warning
@@ -14,12 +12,13 @@ The ELevate NG supports a number of 3rd party repositories:
 
 - EPEL support is currently available for upgrades to AlmaLinux OS only. **Note**, that the support works only for those packages from EL 9 that are currently available for EL 10. Unavailable packages from EL 9 will remain on the system after the upgrade.
 - Docker CE - for all supported operating systems.
-- MariaDB - for supported operating systems excluding AlmaLinux 10, AlmaLinux Kitten 10, and CentOS Stream 10.
-- nginx - for supported operating systems excluding AlmaLinux 10, AlmaLinux Kitten 10, and CentOS Stream 10.
+- MariaDB - for supported operating systems.
+- nginx - for supported operating systems.
 - PostgreSQL - for all supported operating systems.
-- Imunify - for upgrades to EL 8.
-- KernelCare - for supported operating systems excluding AlmaLinux 10, AlmaLinux Kitten 10, and CentOS Stream 10.
+- Imunify - for upgrades to EL 8 and EL 10.
+- KernelCare - for supported operating systems.
 - TuxCare - for all supported operating systems.
+- ELevate - for all supported operating systems.
 
 :::tip
 You can add more 3rd party repositories support. See more on the [Contribute](/elevate/Contribution-guide) page.
@@ -27,11 +26,9 @@ You can add more 3rd party repositories support. See more on the [Contribute](/e
 
 Currently, the following upgrade paths are available:
 
-![image](/images/ELevateNG.svg)
+![image](/images/ELevateNG.webp)
 
-\* - upgrading from Scientific Linux 7 to AlmaLinux 8 requires a workaround. Please, see more in the [known issues](#known-issues). <br>
-\*\* - upgrading to Oracle Linux 9 is available with the [Oracle Leapp utility](https://blogs.oracle.com/linux/post/upgrade-oracle-linux-8-to-oracle-linux-9-using-leapp) and will not be supported by ELevate project.<br>
-\*\*\* - Currently, upgrades to AlmaLinux 10 and AlmaLinux Kitten 10 don't support x86_64_v2 architecture.
+\* - Currently, upgrades to AlmaLinux 10 and AlmaLinux Kitten 10 don't support x86_64_v2 architecture.
 
 ::: warning
 ELevate currently does not support the [Raspberry Pi images](https://github.com/AlmaLinux/raspberry-pi/).
@@ -143,12 +140,103 @@ EL7 to EL8 upgrades aren't supported by [leapp-repository upstream](https://gith
 
 Please follow the [ELevating CentOS 7 to AlmaLinux 10](/elevate/ELevating-CentOS7-to-AlmaLinux-10) guide to upgrade CentOS7 to AlmaLinux 8.
 
+## Prepare the system for upgrading to AlmaLinux 9
+
+:::warning
+Skip these steps if your system was NOT upgraded from EL 7.
+:::
+
+When successfully upgraded to AlmaLinux 8 OS, consider performing these steps to prepare your system for upgrading to AlmaLinux 9:
+
+- Navigate to the **/etc/** directory and use an editor of your choice to edit the **yum.conf** file. You need to remove everything from the **exclude** line especially that refers to elevate or leapp.
+
+  ##### An example of yum.conf file:
+
+  ```bash
+  [main]
+  gpgcheck=1
+  installonly_limit=3
+  clean_requirements_on_remove=True
+  best=True
+  skip_if_unavailable=False
+  exclude=python2-leapp,snactor,leapp-upgrade-el7toel8,leapp
+  ```
+
+- Then navigate to the _/etc/dnf/_ directory and use an editor of your choice to do the same in the **dnf.conf** file.
+- Now you can remove/manually upgrade packages left from CentOS 7 without any conflicts.
+- Check packages left from CentOS 7:
+
+  ```bash
+  rpm -qa | grep el7
+  ```
+
+  An example output with a list of packages:
+
+  ```bash
+  leapp-data-almalinux-0.5-1.el7.20241127.noarch
+  leapp-0.18.0-2.el7.noarch
+  kernel-3.10.0-1160.119.1.el7.x86_64
+  python2-leapp-0.18.0-2.el7.noarch
+  leapp-upgrade-el7toel8-0.21.0-5.el7.elevate.4.noarch
+  kernel-3.10.0-1127.el7.x86_64
+  ```
+
+  As mentioned above, consider removing these packages or upgrading them manually to proceed with upgrade to AlmaLinux 9.
+
+  :::tip
+  If you face difficulties while removing the packages, the following command might help you:
+
+  ```bash
+  sudo rpm -e --nodeps <package_name>
+  ```
+
+  :::
+
+- You can also check for the packages left from the upgrade process and remove them:
+
+  ```bash
+  rpm -qa | grep elevate
+  rpm -qa | grep leapp
+  ```
+
+- Check whether you have the _/root/tmp_leapp_py3_ directory created and if so delete it.
+
+  ```bash
+  sudo rm -fr /root/tmp_leapp_py3
+  ```
+
+- Clean up your machine.
+
+  ```bash
+  sudo dnf clean all
+  ```
+
+- You may also have to remove old RSA/SHA1 GPG keys. List the keys:
+
+  ```bash
+  rpm -q gpg-pubkey --qf '%{NAME}-%{VERSION}-%{RELEASE}\t%{SUMMARY}\n'
+  ```
+
+  To remove them, use use the `rpm -e` command:
+
+  ```bash
+  sudo rpm -e [keyname]
+  ```
+
+  After these preparations are completed, you can upgrade your AlmaLinux 8 machine to AlmaLinux 9.
+
 ## Upgrading AlmaLinux 8 to AlmaLinux 9
 
 - Install ELevate NG version repo config for AlmaLinux8:
 
   ```bash
   sudo curl -o /etc/yum.repos.d/elevate-ng.repo https://repo.almalinux.org/elevate/testing/elevate-ng-el$(rpm -E %rhel).repo
+  ```
+
+- Import ELevate GPG key:
+
+  ```bash
+  sudo rpm --import https://repo.almalinux.org/elevate/RPM-GPG-KEY-ELevate
   ```
 
 - Install leapp packages and upgrade data for AlmaLinux which is target OS:
@@ -217,6 +305,10 @@ Please follow the [ELevating CentOS 7 to AlmaLinux 10](/elevate/ELevating-CentOS
   ```
 
 ## Prepare the system for upgrade to AlmaLinux 10
+
+:::warning
+Skip these steps if your system was NOT upgraded from EL 8.
+:::
 
 When successfully upgraded to AlmaLinux 9 OS, consider performing these steps to prepare your system for upgrading to AlmaLinux 10:
 
@@ -287,10 +379,6 @@ When successfully upgraded to AlmaLinux 9 OS, consider performing these steps to
 After these preparations are completed, you can upgrade your AlmaLinux 9 machine to AlmaLinux 10.
 
 ## Upgrading AlmaLinux 9 to AlmaLinux 10
-
-:::warning
-This upgrade is currently in development and testing. The main goals are to deliver working `leapp-data` and `leapp-repository` packages needed for the upgrade and to be able to upgrade to AlmaLinux OS 10 successfully. This upgrade is not recommended for production machines.
-:::
 
 :::tip
 These steps can also be used to perform the upgrade from CentOS Stream 9 to CentOS Stream 10. The only difference is the `leapp-data` package.
@@ -372,14 +460,6 @@ Here we have provided a demo of a CentOS 7.x to AlmaLinux 8.x upgrade using the 
 <iframe width="856" height="482" src="https://www.youtube.com/embed/Vzl9QxG5mvo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Known Issues
-
-### Upgrading from Scientific Linux 7
-
-Upgrading from Scientific Linux 7 to AlmaLinux 8 requires a workaround. You can apply it by running the following command before the preupgrade check:
-
-```bash
-rm -rf /usr/share/redhat-release /usr/share/doc/redhat-release
-```
 
 ### Progressive upgrade to AlmaLinux 10 or AlmaLinux Kitten 10
 

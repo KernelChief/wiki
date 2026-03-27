@@ -2,8 +2,6 @@
 title: "ALESCo"
 ---
 
-###### last updated: 2024-05-20
-
 # ALESCo
 
 The AlmaLinux Engineering Steering Committee (ALESCo), is a self-governing body made of active contributors to the project that will guide the technical direction of the AlmaLinux distribution. Participation in the meetings, discussions around potential changes, and other needs will be open to the AlmaLinux community, unless prevented for specific reasons (for example: an embargoed security patch). This committee was formed by vote of the [32nd meeting](https://drive.google.com/file/d/1rPU7QhRbLOsSrZBQcW5xQEItwgbP1Vt1/view) of the AlmaLinux OS Foundation board, May 8th of 2024.
@@ -47,7 +45,6 @@ The foundation board appointed the initial committee members, but the rest of th
 
 - [Andrew Lukoshko](https://chat.almalinux.org/almalinux/messages/@alukoshko)
 - [Ben Thomas](https://chat.almalinux.org/almalinux/messages/@b.a.thomas)
-- [Cody Robertson](https://chat.almalinux.org/almalinux/messages/@codyr)
 - [Jonathan Wright](https://chat.almalinux.org/almalinux/messages/@jonathan)
 - [Neal Gompa](https://chat.almalinux.org/almalinux/messages/@ngompa13)
 
@@ -76,11 +73,21 @@ The AlmaLinux Engineering Steering Committee (ALESCo) is dedicated to guiding th
 ### Policies:
 
 1.  Transparency: All meetings, decisions, and discussions will be public, ensuring transparency and community involvement. ALESCo members must publicly disclose their employer and any conflicts of interest, and maintain this disclosure in the wiki, updating it as necessary for accuracy.
-2.  Appointments: The first ALESCo members are to be appointed by the Board of Directors.  After the initial appointment, the membership of ALESCo will manage itself - adding members or filling vacancies as deemed necessary by vote of the current members. ALESCo members are expected to have and maintain relevant knowledge and understanding of the technical aspects surrounding AlmaLinux as well as the greater enterprise Linux and open source ecosystems to allow them to make informed decisions in policy creation and voting.
+
+2.  Appointments: The first ALESCo members are to be appointed by the Board of Directors.  After the initial appointment, the membership of ALESCo will manage itself - adding members or filling vacancies as deemed necessary by vote of the current members. ALESCo members are expected to have and maintain relevant knowledge and understanding of the technical aspects surrounding AlmaLinux as well as the greater enterprise Linux and open source ecosystems to allow them to make informed decisions in policy creation and voting. New members may be appointed to ALESCo either to fill a vacancy arising from a member's resignation or to expand the committee's membership.
+
+    The process for appointing a new member requires that a candidate first be nominated by a current, acting member of ALESCo. The nominated candidate must be an active member of the AlmaLinux community. Following nomination, the candidate must complete a questionnaire provided by ALESCo, which is intended to help the committee make an informed and balanced decision by understanding the candidate's background, qualifications, and motivation. Committee members must receive the completed questionnaire at least 5 business days before the vote.
+
+    The appointment of the new member requires approval by a simple majority vote of the current ALESCo members. Following successful approval, the candidate shall be invited to the next ALESCo meeting, where they will formally confirm their acceptance to join the committee.
+
 3.  Term Duration: ALESCo members are appointed with no set term. Every 6 months, at the time of chair election within ALESCo, each member is to be asked if they intend to continue serving or choose to step down.
+
 4.  Meeting Frequency: ALESCo will meet regularly, no less than once per month.
+
 5.  Decision Making: Decisions will be made based on a majority vote. In case of a tie, the chairperson (or a designated member) will have the deciding vote.
+
 6.  Quorum: A quorum is defined as 50% of members +1 with a minimum quorum always being at least four (4) members. A quorum is required for any votes.
+
 7.  Dissolution: At a point where the ALESCo is no longer functioning for the good of the AlmaLinux community, the board reserves the right to dissolve the committee and reform it with new members.
 
 ### Chair:

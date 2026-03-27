@@ -2,19 +2,17 @@
 title: "Migration SIG"
 ---
 
-###### last updated: 2024-04-22
-
 # Migration SIG
 
 The Migration team is responsible for two migration projects - the migration tool and the ELevate project, including documentation and upgrades. See the [Migration](/migration/) section for more details.
 
 ### AlmaLinux Migration Tool
 
-The [migration tool](/documentation/migration-guide) is used to convert an EL8 or EL9 machine.
+The [migration tool](/documentation/migration-guide) is used to convert an EL8, EL9 or EL10 machine to the corresponding version.
 
 The tool supports the following migration paths:
 
-![image](/images/migration.svg)
+![image](/images/migration.webp)
 
 ### AlmaLinux ELevate project.
 
@@ -22,10 +20,9 @@ The ELevate project is an initiative to support migrations between major version
 
 The project supports the following migration paths:
 
-![image](/images/ELevate.svg)
+![image](/images/ELevate.webp)
 
-\* - migration to CentOS Stream 9 is currently in process and will be available later. <br>
-\*\* - migration to Oracle Linux 9 is available with the [Oracle Leapp utility](https://blogs.oracle.com/linux/post/upgrade-oracle-linux-8-to-oracle-linux-9-using-leapp) and will not be supported by ELevate project.
+\* - Currently, upgrades to AlmaLinux 10 and AlmaLinux Kitten 10 don't support x86_64_v2 architecture.
 
 ## How to Join
 
@@ -56,9 +53,6 @@ If you can help, please join us at [Migration SIG on Mattermost](https://chat.al
 
 ## SIG members
 
-- [Stepan Oksanichenko](mailto:soksanichenko@cloudlinux.com) - Package Evolution Service developer.
-  - Chat login: [stepan_oksanichenko](https://chat.almalinux.org/almalinux/messages/@stepan_oksanichenko)
-  - GitHub profile: [soksanichenko](https://github.com/soksanichenko)
 - [Yuriy Kohut](mailto:ykohut@almalinux.org) - ELevate Project engineer.
   - Chat login: [ykohut](https://chat.almalinux.org/almalinux/messages/@ykohut)
   - GitHub profile: [yuravk](https://github.com/yuravk)

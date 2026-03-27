@@ -2,8 +2,6 @@
 title: "Docker Images"
 ---
 
-###### last updated: 2025-06-20
-
 # AlmaLinux OS Docker Images
 
 ## About AlmaLinux Docker Images
@@ -92,4 +90,4 @@ Links to repositories:
 
 ## Help and Contribute
 
-If you want to contribute or need any help, join us at [Container Sig at Mattermost](https://chat.almalinux.org/almalinux/channels/sigvirtcontainer).
+If you want to contribute or need any help, join us at [Cloud SIG at Mattermost](https://chat.almalinux.org/almalinux/channels/sigcloud) or [Cloud SIG on Matrix](https://matrix.to/#/#sig-cloud:almalinux.im).

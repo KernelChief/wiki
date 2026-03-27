@@ -2,8 +2,6 @@
 title: "Live Media"
 ---
 
-###### last modified: 2025-02-17
-
 # Live Media
 
 ## About Live Media
@@ -21,19 +19,19 @@ There are a few AlmaLinux Live Media Options:
 - GNOME Mini: contains a core GNOME environment with Firefox browser
 - GNOME: contains a full GNOME environment with popular workstation applications like LibreOffice, Thunderbird and so on.
 
-![image](/images/live-media-9-gnome.png)
+![image](/images/live-media-9-gnome.webp)
 
 - KDE: contains KDE desktop environment with Firefox browser, Konqueror browser, and applications like LibreOffice, Thunderbird, etc.
 
-![image](/images/live-media-9-kde.png)
+![image](/images/live-media-9-kde.webp)
 
 - MATE: contains MATE desktop environment with Firefox browser, LibreOffice and other applications.
 
-![image](/images/live-media-9-mate.png)
+![image](/images/live-media-9-mate.webp)
 
 - XFCE: contains XFCE desktop environment with Firefox browser, Thunderbird, LibreOffice, and more applications.
 
-![image](/images/live-media-9-xfce.png)
+![image](/images/live-media-9-xfce.webp)
 
 ## How to download and write images
 
@@ -56,7 +54,7 @@ Insert your target USB and locate it. There are different ways to do it but here
 
 - `lsblk` - this command gives you all the available block storage devices, including the USB block storage devices.
 
-- `sudo blkid` - this command gives you the same information as `lsblk`, but you have to rub it as root.
+- `sudo blkid` - this command gives you the same information as `lsblk`, but you have to run it as root.
 
 You need to look for /dev/sda or /dev/sdb or /dev/sdc, which is your target USB.
 

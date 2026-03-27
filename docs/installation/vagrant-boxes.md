@@ -2,8 +2,6 @@
 title: "Vagrant Boxes"
 ---
 
-###### last updated: 2025-06-20
-
 # Vagrant Boxes
 
 AlmaLinux offers official AlmaLinux OS images for Vagrant Boxes. Images are delivered by the AlmaLinux [Cloud SIG](https://wiki.almalinux.org/sigs/Cloud.html).
@@ -26,6 +24,85 @@ The following images are available on HCP Vagrant Registry:
 If you are looking for AlmaLinux OS Kitten images, please, visit the [AlmaLinux OS Kitten page](/development/almalinux-os-kitten-10).
 :::
 
+## How to increase disk size
+
+Starting from the **20260318** version (**8.10.20260318**, **9.7.20260318**, **10.1.20260318**), automatic partition and filesystem resizing is enabled.
+This is implemented with the cloud-init NoCloud/None datasource configuration (via `99_vagrant.cfg`).
+
+To increase disk size (for example, to 100GB) for a specific provider:
+
+- **Libvirt**
+
+  ```ruby
+  Vagrant.configure("2") do |config|
+    config.vm.box = "almalinux/10"
+
+    config.vm.provider "libvirt" do |libvirt|
+      libvirt.machine_virtual_size = 100
+    end
+  end
+  ```
+
+- **VirtualBox**
+
+  ```ruby
+  Vagrant.configure("2") do |config|
+    config.vm.box = "almalinux/10"
+
+    config.vm.disk :disk, size: "100GB", primary: true
+
+    config.vm.provider "virtualbox" do |vb|
+      # VirtualBox specific configuration
+    end
+  end
+  ```
+
+- **VMware**
+
+  ```ruby
+  Vagrant.configure("2") do |config|
+    config.vm.box = "almalinux/10"
+
+    config.vm.disk :disk, size: "100GB", primary: true
+
+    config.vm.provider "vmware_desktop" do |v|
+      # Force a full clone (an independent copy of the disk)
+      v.linked_clone = false
+    end
+  end
+  ```
+
+- **Hyper-V**
+
+  ```ruby
+  Vagrant.configure("2") do |config|
+    config.vm.box = "almalinux/10"
+
+    config.vm.disk :disk, size: "100GB", primary: true
+
+    config.vm.provider "hyperv" do |hyperv|
+      # Force a full clone (an independent copy of the disk)
+      hyperv.linked_clone = false
+    end
+  end
+  ```
+
+- **Parallels**
+
+  ```ruby
+  Vagrant.configure("2") do |config|
+    config.vm.box = "almalinux/10"
+
+    config.vm.provider "parallels" do |prl|
+      # Force a full clone (an independent copy of the disk)
+      prl.linked_clone = false
+      # Parallels requires disk size in MB (102400 MB = 100 GB)
+      prl.customize "post-import",
+        ["set", :id, "--device-set", "hdd0", "--size", "102400", "--no-fs-resize"]
+    end
+  end
+  ```
+
 ## Contribute and Get Help
 
 If you are interested in contributing or need any assistance, check the [SIG/Cloud](/sigs/Cloud) wiki page and join the _~SIG/Cloud_ chat channel in [Mattermost](https://chat.almalinux.org/almalinux/channels/sigcloud) chat channel on [chat.almalinux.org](https://chat.almalinux.org).
@@ -37,6 +114,59 @@ If you are interested in contributing or need any assistance, check the [SIG/Clo
 **2024-12-23**
 
 All the boxes have been migrated to the [HCP Vagrant Registry](https://portal.cloud.hashicorp.com/vagrant/discover/almalinux).
+
+### AlmaLinux OS version **8.10.20260318**, **9.7.20260318**, **10.1.20260318**
+
+- Package updates
+- New packages were added: `cloud-utils-growpart`
+- Enabled automatic partition and filesystem resizing when disk size is increased
+
+### AlmaLinux OS version **8.10.20260112**
+
+- Packages updates
+- New packages were added: `bind-export-libs`, `checkpolicy`, `cloud-init`, `dhcp-client`, `dhcp-common`, `dhcp-libs`, `geolite2-city`, `geolite2-country`, `ipcalc`, `libmaxminddb`, `python3-audit`, `python3-babel`, `python3-cffi`, `python3-chardet`, `python3-configobj`, `python3-cryptography`, `python3-idna`, `python3-jinja2`, `python3-jsonpatch`, `python3-jsonpointer`, `python3-jsonschema`, `python3-jwt`, `python3-libsemanage`, `python3-markupsafe`, `python3-netifaces`, `python3-oauthlib`, `python3-ply`, `python3-policycoreutils`, `python3-prettytable`, `python3-pycparser`, `python3-pyserial`, `python3-pysocks`, `python3-pytz`, `python3-requests`, `python3-setools`, `python3-urllib3`
+
+### AlmaLinux OS version **9.7.20260111**
+
+- Packages updates
+- New packages were added: `checkpolicy`, `cloud-init`, `dhcp-client`, `dhcp-common`, `gdisk`, `ipcalc`, `python3-attrs`, `python3-audit`, `python3-babel`, `python3-chardet`, `python3-configobj`, `python3-distro`, `python3-idna`, `python3-jinja2`, `python3-jsonpatch`, `python3-jsonpointer`, `python3-jsonschema`, `python3-libsemanage`, `python3-markupsafe`, `python3-netifaces`, `python3-oauthlib`, `python3-policycoreutils`, `python3-prettytable`, `python3-pyrsistent`, `python3-pyserial`, `python3-pysocks`, `python3-pytz`, `python3-requests`, `python3-setools`, `python3-urllib3`
+
+### AlmaLinux OS version **10.1.20260110**
+
+- Packages updates
+- New packages were added: `checkpolicy`, `cloud-init`, `dhcpcd`, `openssl`, `python3-audit`, `python3-charset-normalizer`, `python3-configobj`, `python3-distro`, `python3-idna`, `python3-jinja2`, `python3-jsonpatch`, `python3-jsonpointer`, `python3-libsemanage`, `python3-markupsafe`, `python3-oauthlib`, `python3-policycoreutils`, `python3-pyserial`, `python3-requests`, `python3-setools`, `python3-setuptools`, `python3-urllib3`
+
+#### Provider specific changes:
+
+- virtualbox
+  - Built in **VirtualBox 7.1.14**, with the Guest Additions same version included.
+
+- vmware_desktop
+  - Built for aarch64 in **VMware Fusion 25H2u1 (25219963)**
+
+### AlmaLinux OS version **10.1.20251125**
+
+- AlmaLinux release 10.1 (Heliotrope Lion)
+
+### AlmaLinux OS version **9.7.20251119**
+
+- AlmaLinux release 9.7 (Moss Jungle Cat)
+
+### AlmaLinux OS version **8.10.20251006**
+
+- Packages updates
+
+#### Provider specific changes:
+
+-hyperv
+
+- Built in **Hyper-V 10.0.26100.7019**
+
+- virtualbox
+  - Built in **VirtualBox 7.1.6**, with the Guest Additions same version included.
+
+- vmware_desktop
+  - Built for x86_64 in **VMware Workstation 17.6.3 (24583834)**
 
 ### AlmaLinux OS version **9.5.20241203**
 

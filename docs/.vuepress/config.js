@@ -55,22 +55,27 @@ module.exports = {
         title: "Release Notes",
         path: "/release-notes/",
         children: [
-          "/release-notes/10.0",
-          "/release-notes/9.6",
+          "/release-notes/10.1",
+          "/release-notes/9.7",
           "/release-notes/8.10",
           "/release-notes/kitten-10",
           {
             title: "Older AlmaLinux 10 releases",
             children: [
+              "/release-notes/10.0",
               {
                 title: "AlmaLinux 10 betas",
-                children: ["/release-notes/10.0-beta"],
+                children: [
+                  "/release-notes/10.1-beta",
+                  "/release-notes/10.0-beta",
+                ],
               },
             ],
           },
           {
             title: "Older AlmaLinux 9 releases",
             children: [
+              "/release-notes/9.6",
               "/release-notes/9.5",
               "/release-notes/9.4",
               "/release-notes/9.3",
@@ -80,6 +85,7 @@ module.exports = {
               {
                 title: "AlmaLinux 9 betas",
                 children: [
+                  "/release-notes/9.7-beta",
                   "/release-notes/9.6-beta",
                   "/release-notes/9.5-beta",
                   "/release-notes/9.4-beta",
@@ -144,27 +150,6 @@ module.exports = {
           "/Contribute-to-Packaging",
           "/Contribute-to-Testing",
           "/Help-translating-site",
-          {
-            title: "Special interest groups (SIGs)",
-            path: "/sigs/",
-            children: [
-              "/sigs/Atomic",
-              "/sigs/Build-System",
-              "/sigs/Cloud",
-              "/sigs/Core",
-              "/sigs/HPCandAI",
-              "/sigs/Infrastructure",
-              "/sigs/LiveMedia",
-              {
-                title: "The Marketing SIG",
-                path: "/sigs/Marketing",
-                children: ["/sigs/marketing/indico"],
-              },
-              "/sigs/Migration",
-              "/sigs/Certification",
-              "/sigs/ProcessForCreatingNewSIG",
-            ],
-          },
         ],
       },
       {
@@ -193,7 +178,6 @@ module.exports = {
           "/Comparison",
           "/documentation/nvidia",
           "/FAQ",
-          "/Howto",
           {
             title: "openQA Guide",
             path: "/development/openQA",
@@ -202,6 +186,14 @@ module.exports = {
             title: "Howto Series",
             path: "/series/",
             children: [
+              {
+                title: "Beginner Series",
+                path: "/beginners/",
+                children: [
+                  "/beginners/file-and-folder-permissions",
+                  "/beginners/users-and-groups",
+                ],
+              },
               "/series/LAMP-server",
               {
                 title: "Nginx Series",
@@ -322,6 +314,29 @@ module.exports = {
               "/elevate/Changelog",
             ],
           },
+        ],
+      },
+      {
+        title: "Special interest groups (SIGs)",
+        path: "/sigs/",
+        children: [
+          "/sigs/AltArch",
+          "/sigs/Atomic",
+          "/sigs/Build-System",
+          "/sigs/Certification",
+          "/sigs/Cloud",
+          "/sigs/Core",
+          "/sigs/HPCandAI",
+          "/sigs/Infrastructure",
+          "/sigs/LiveMedia",
+          {
+            title: "Marketing SIG",
+            path: "/sigs/Marketing",
+            children: ["/sigs/marketing/indico"],
+          },
+          "/sigs/MediaAndEntertainmentSIG",
+          "/sigs/Migration",
+          "/sigs/ProcessForCreatingNewSIG",
         ],
       },
       {

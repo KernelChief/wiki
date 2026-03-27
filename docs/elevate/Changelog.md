@@ -2,11 +2,82 @@
 title: "ELevate Changelog"
 ---
 
-###### last updated: 2025-08-20
-
 # ELevate Changelog
 
 **Note**, this changelog only includes updates made from 2024-09-24 onwards, and does not include any changes made prior to this date.
+
+## 2026-03-19
+
+Released to Stable:
+
+#### Leapp Data
+
+- Vendor **PostgreSQL**:
+- add _PostgreSQL 18 for EL_ repositories, 8 to 9 upgrade path
+- include `ppc64le` architecture where it is available
+- switch _PostgreSQL 13 for EL_ repositories into `yum-archive.postgresql.org`
+
+## 2026-02-23
+
+Released to Stable:
+
+#### Leapp Data
+
+- Vendor **MariaDB**:
+  - change domain into _mirror.mariadb.org_ and set path in baseurl for `mariadb-main` repository
+  - set baseurl to https://mirror.mariadb.org/yum/11.rolling/rhel/$releasever/$basearch (EL7 only)
+
+#### Leapp Repository
+
+- Update ELevate patch: setup repomap handler - combine all `RepositoriesMapping` messages (main + vendor, EL7 only)
+
+## 2026-01-27
+
+Released to Stable:
+
+#### Leapp Data
+
+- Vendor **PostgreSQL**:
+  - remove _Supplementary ucommon RPMs_ (sysupdates) repositories
+  - switch _PostgreSQL 12 for RHEL / CentOS_ repositories into `yum-archive.postgresql.org`
+
+## 2025-11-18
+
+Released to Stable:
+
+#### Leapp Framework
+
+- Update to the upstream 0.20.0 version [(209a1dbc61b319d64abd0eff23a21d8cdbf08882)](https://github.com/oamg/leapp/commit/209a1dbc61b319d64abd0eff23a21d8cdbf08882).
+
+#### Leapp Repository
+
+- Update to the upstream 0.23.0 version [(c86de9a8c52d6f1279aba4a9b0d5f169cbbcc720)](https://github.com/oamg/leapp-repository/commit/c86de9a8c52d6f1279aba4a9b0d5f169cbbcc720).
+
+#### Leapp Data
+
+- Update all data into stream 4.0.
+- Update all repomap files into new format version 1.3.0.
+
+## 2025-11-03
+
+Released to Stable:
+
+#### PES data updates
+
+- New Vendor **elevate** - ELevate enables upgrades between major versions of RHEL derivatives. Enabled for all upgrade paths
+- Enable Vendors for 9 to 10 upgrade:
+  - **nginx**
+  - **kernelcare**
+  - **mariadb** (without MaxScale and Tools repositories)
+  - **imunify**
+  - **imunify360-alt-php**
+- Vendor **kernelcare** use `el-sig202505` repository
+- Vendor **imunify**: update rpm GPG key, correct EL9 `imunify360-testing` repository baseurl, update packages SIGs
+- Vendor **imunify360-alt-php** update rpm GPG key, update packages SIGs
+
+#### ELevate release package
+
+- Use `$releasever` instead of `%{rhel}` in `baseurl`
 
 ## 2025-08-20
 

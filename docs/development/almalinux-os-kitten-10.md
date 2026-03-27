@@ -2,8 +2,6 @@
 title: "AlmaLinux OS Kitten 10"
 ---
 
-###### last modified: 2025-06-19
-
 # About AlmaLinux OS Kitten 10
 
 ###### Note: Our kitten is not related to [this one](https://www.sandia.gov/ccr/software/kitten-lightweight-kernel/) :D
@@ -14,7 +12,7 @@ Currently, AlmaLinux OS Kitten is based on CentOS Stream 10 code and provides a 
 
 AlmaLinux Kitten also allows anyone who is building from or extending AlmaLinux to engage in our building and release processes and gain a deeper understanding of them.
 
-<img src=/images/kitten10-screenshot.png width="75%" height="75%">
+<img src=/images/kitten10-screenshot.webp width="75%" height="75%">
 
 ## Mirrors, ISOs, and Update Frequency
 
@@ -49,7 +47,7 @@ Community AMIs are images that are shared directly by the AlmaLinux OS Foundatio
 
 <details>
   <summary>Click to expand AlmaLinux OS Kitten 10 AMIs</summary>
-  
+
   <Content :page-key="$site.pages.find(p => p.path === '/development/AWS_AMIS_kitten_10.html').key"/>
 </details>
 
@@ -115,12 +113,13 @@ More about AlmaLinux OS Live Media images - [AlmaLinux Live Media Page](/LiveMed
 
 AlmaLinux provides official AlmaLinux OS Kitten images for Vagrant:
 
-| Vagrant Box | AlmaLinux OS Kitten 10                                                                                                                                                                  |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Libvirt     | - [x86_64](https://portal.cloud.hashicorp.com/vagrant/discover/almalinux/10-kitten)<br>- [x86_64_v2](https://portal.cloud.hashicorp.com/vagrant/discover/almalinux/10-kitten-x86_64_v2) |
-| VirtualBox  | - [x86_64](https://portal.cloud.hashicorp.com/vagrant/discover/almalinux/10-kitten)<br>- [x86_64_v2](https://portal.cloud.hashicorp.com/vagrant/discover/almalinux/10-kitten-x86_64_v2) |
-| Hyper-V     | - [x86_64](https://portal.cloud.hashicorp.com/vagrant/discover/almalinux/10-kitten)<br>- [x86_64_v2](https://portal.cloud.hashicorp.com/vagrant/discover/almalinux/10-kitten-x86_64_v2) |
-| VMware      | - [x86_64](https://portal.cloud.hashicorp.com/vagrant/discover/almalinux/10-kitten)<br>- [x86_64_v2](https://portal.cloud.hashicorp.com/vagrant/discover/almalinux/10-kitten-x86_64_v2) |
+| Vagrant Box | AlmaLinux OS Kitten 10                                                                                                                                                                                                                                                          |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Libvirt     | - [x86_64](https://portal.cloud.hashicorp.com/vagrant/discover/almalinux/10-kitten)<br>- [x86_64_v2](https://portal.cloud.hashicorp.com/vagrant/discover/almalinux/10-kitten-x86_64_v2)                                                                                         |
+| VirtualBox  | - [x86_64](https://portal.cloud.hashicorp.com/vagrant/discover/almalinux/10-kitten)<br>- [x86_64_v2](https://portal.cloud.hashicorp.com/vagrant/discover/almalinux/10-kitten-x86_64_v2)                                                                                         |
+| Hyper-V     | - [x86_64](https://portal.cloud.hashicorp.com/vagrant/discover/almalinux/10-kitten)<br>- [x86_64_v2](https://portal.cloud.hashicorp.com/vagrant/discover/almalinux/10-kitten-x86_64_v2)                                                                                         |
+| VMware      | - [x86_64](https://portal.cloud.hashicorp.com/vagrant/discover/almalinux/10-kitten)<br>- [x86_64_v2](https://portal.cloud.hashicorp.com/vagrant/discover/almalinux/10-kitten-x86_64_v2)<br>- [aarch64](https://portal.cloud.hashicorp.com/vagrant/discover/almalinux/10-kitten) |
+| Parallels   | - [aarch64](https://portal.cloud.hashicorp.com/vagrant/discover/almalinux/10-kitten)                                                                                                                                                                                            |
 
 More about AlmaLinux OS images for Vagrant Boxes - [AlmaLinux Vagrant Boxes Page](/installation/vagrant-boxes).
 

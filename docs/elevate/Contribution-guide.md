@@ -2,8 +2,6 @@
 title: "ELevate Contribution Guide"
 ---
 
-###### last updated: 2025-06-05
-
 # Contribute to the ELevate project
 
 We welcome contributors to the ELevate project. You can help with:
@@ -17,12 +15,13 @@ Currently, the ELevate project supports the following of 3rd party repositories:
 
 - EPEL support is currently available for upgrades to AlmaLinux OS only. **Note**, that the support works only for those packages from EL 9 that are currently available for EL 10. Unavailable packages from EL 9 will remain on the system after the upgrade.
 - Docker CE - for all supported operating systems.
-- MariaDB - for supported operating systems excluding AlmaLinux 10, AlmaLinux Kitten 10, and CentOS Stream 10.
-- nginx - for supported operating systems excluding AlmaLinux 10, AlmaLinux Kitten 10, and CentOS Stream 10.
+- MariaDB - for supported operating systems.
+- nginx - for supported operating systems.
 - PostgreSQL - for all supported operating systems.
-- Imunify - for upgrades to EL 8.
-- KernelCare - for supported operating systems excluding AlmaLinux 10, AlmaLinux Kitten 10, and CentOS Stream 10.
+- Imunify - for upgrades to EL 8 and EL 10.
+- KernelCare - for supported operating systems.
 - TuxCare - for all supported operating systems.
+- ELevate - for all supported operating systems.
 
 This guide provides steps to integrate 3rd party repository packages into the ELevate upgrade process.
 :::danger
@@ -384,7 +383,7 @@ When creating `in_packageset` and `out_packageset` lists, please, stick to the f
   PWD=$( pwd )
 
   if [ -z "$DISTRO" ]; then
-      echo "$0 almalinux|centos|oraclelinux|rocky"
+      echo "$0 almalinux|centos"
       exit 1
   fi
 
@@ -420,7 +419,7 @@ When creating `in_packageset` and `out_packageset` lists, please, stick to the f
   PWD=$( pwd )
 
   if [ -z "$DISTRO" ]; then
-      echo "$0 almalinux|centos|oraclelinux|rocky"
+      echo "$0 almalinux|centos"
       exit 1
   fi
 
@@ -436,9 +435,7 @@ When creating `in_packageset` and `out_packageset` lists, please, stick to the f
 Once you've prepared the vendor data for migration and tested the upgrade process, create a pull request to [leapp-data repository](https://github.com/AlmaLinux/leapp-data) to make it publicly available.
 
 :::warning
-If your v3rd party repository data is intended only for a specific OS and not all supported OSes, please put it in the `files/<target_OS>/vendors.d/` direction.
-
-When testing on your system, put your vendor files to the `/etc/leapp/files/vendors.d/` direction before starting the upgrade.
+When testing on your system, put your vendor files to the `/etc/leapp/files/vendors.d/` directory before starting the upgrade.
 :::
 
 Next, when the pull request is submitted, the AlmaLinux Team will review it.
@@ -449,7 +446,7 @@ We are also seeking contributors to test new ELevate features and upgrade direct
 
 The current ELevate process is the following:
 
-![image](/images/elevate-testing-scheme.svg)
+![image](/images/elevate-testing-scheme.webp)
 
 - ELevate NG is designed to collect community contributions such as new support, features and bugfixes, leapp-repository, and leapp-data new versions. We test these enhancements first and welcome the community to test them. If you are interested please refer to the [ELevate NG Testing Guide](https://wiki.almalinux.org/elevate/ELevate-NG-testing-guide.html).
 - ELevate NG goes to the general testing. If you are interested please refer to the [ELevate Testing Guide](https://wiki.almalinux.org/elevate/ELevate-testing-guide.html). Meanwhile, ELevate NG gathers new data, features and improvements.

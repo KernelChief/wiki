@@ -2,8 +2,6 @@
 title: "AlmaLinux Migration Projects"
 ---
 
-###### last updated: 2025-06-06
-
 # AlmaLinux Migration Projects
 
 AlmaLinux offers two projects for migrating your machine, each designed for specific migration paths.
@@ -16,7 +14,7 @@ See the general overviews of options to select the tool/project that best fits y
 
 The tool supports the following migration paths:
 
-![image](/images/migration.svg)
+![image](/images/migration.webp)
 
 See the [Migration Guide](/documentation/migration-guide) for the conversion steps.
 
@@ -48,9 +46,8 @@ You can contribute to the project and add more 3rd party repositories support. S
 
 Currently, the following upgrade paths are available:
 
-![image](/images/ELevate.svg)
+![image](/images/ELevate.webp)
 
-\* - upgrading from Scientific Linux 7 to AlmaLinux 8 requires a workaround. Please, see more in the [known issues](/elevate/ELevate-frequent-issues). <br>
-\*\* - upgrading to Oracle Linux 9 is available with the [Oracle Leapp utility](https://blogs.oracle.com/linux/post/upgrade-oracle-linux-8-to-oracle-linux-9-using-leapp) and will not be supported by ELevate project.
-See the [ELevate](/elevate/) section for the update steps.<br>
-\*\*\* - Currently, upgrades to AlmaLinux 10 and AlmaLinux Kitten 10 don't support x86_64_v2 architecture.
+\* - Currently, upgrades to AlmaLinux 10 and AlmaLinux Kitten 10 don't support x86_64_v2 architecture.
+
+See the [ELevate](/elevate/) section for the update steps.

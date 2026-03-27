@@ -2,8 +2,6 @@
 title: "ELevating CentOS 7 to AlmaLinux 10"
 ---
 
-###### last updated: 2025-06-09
-
 # ELevating CentOS 7 to AlmaLinux 10
 
 This guide contains steps on how to upgrade your CentOS 7 machine to AlmaLinux OS 9.
@@ -17,12 +15,13 @@ The ELevate project supports a number of 3rd party repositories:
 
 - EPEL support is currently available for upgrades to AlmaLinux OS only. **Note**, that the support works only for those packages from EL 9 that are currently available for EL 10. Unavailable packages from EL 9 will remain on the system after the upgrade.
 - Docker CE - for all supported operating systems.
-- MariaDB - for supported operating systems excluding AlmaLinux 10, AlmaLinux Kitten 10, and CentOS Stream 10.
-- nginx - for supported operating systems excluding AlmaLinux 10, AlmaLinux Kitten 10, and CentOS Stream 10.
+- MariaDB - for supported operating systems.
+- nginx - for supported operating systems.
 - PostgreSQL - for all supported operating systems.
-- Imunify - for upgrades to EL 8.
-- KernelCare - for supported operating systems excluding AlmaLinux 10, AlmaLinux Kitten 10, and CentOS Stream 10
+- Imunify - for upgrades to EL 8 and EL 10.
+- KernelCare - for supported operating systems.
 - TuxCare - for all supported operating systems.
+- ELevate - for all supported operating systems.
 
 :::tip
 You can add more 3rd party repositories support. See more on the [Contribute](/elevate/Contribution-guide) page.
@@ -30,11 +29,9 @@ You can add more 3rd party repositories support. See more on the [Contribute](/e
 
 Currently, the following upgrade paths are available:
 
-![image](/images/ELevateNG.svg)
+![image](/images/ELevateNG.webp)
 
-\* - upgrading from Scientific Linux 7 to AlmaLinux 8 requires a workaround. Please, see more in the [known issues](#known-issues). <br>
-\*\* - upgrading to Oracle Linux 9 is available with the [Oracle Leapp utility](https://blogs.oracle.com/linux/post/upgrade-oracle-linux-8-to-oracle-linux-9-using-leapp) and will not be supported by ELevate project.<br>
-\*\*\* - Currently, updgrades to AlmaLinux 10 and AlmaLinux Kitten 10 don't support x86_64_v2 architecture.
+\* - Currently, upgrades to AlmaLinux 10 and AlmaLinux Kitten 10 don't support x86_64_v2 architecture.
 
 ::: warning
 ELevate currently does not support the [Raspberry Pi images](https://github.com/AlmaLinux/raspberry-pi/).
@@ -110,6 +107,10 @@ ELevate currently does not support the [Raspberry Pi images](https://github.com/
   ```
 
 ## Prepare the system for upgrade to AlmaLinux 9
+
+:::warning
+Skip these steps if your system was NOT upgraded from EL 7.
+:::
 
 When successfully upgraded to AlmaLinux 8 OS, consider performing these steps to prepare your system for upgrading to AlmaLinux 9:
 
@@ -265,6 +266,10 @@ When successfully upgraded to AlmaLinux 8 OS, consider performing these steps to
   ```
 
 ## Prepare the system for upgrade to AlmaLinux 10
+
+:::warning
+Skip these steps if your system was NOT upgraded from EL 8.
+:::
 
 When successfully upgraded to AlmaLinux 9 OS, consider performing these steps to prepare your system for upgrading to AlmaLinux 10:
 
@@ -460,14 +465,6 @@ Here we have provided a demo of a CentOS 7.x to AlmaLinux 8.x upgrade using the 
 <iframe width="856" height="482" src="https://www.youtube.com/embed/Vzl9QxG5mvo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Known Issues
-
-### Upgrading from Scientific Linux 7
-
-Upgrading from Scientific Linux 7 to AlmaLinux 8 requires a workaround. You can apply it by running the following command before the preupgrade check:
-
-```bash
-sudo rm -rf /usr/share/redhat-release /usr/share/doc/redhat-release
-```
 
 ### Progressive upgrade to AlmaLinux 10 or AlmaLinux Kitten 10
 

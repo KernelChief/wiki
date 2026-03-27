@@ -2,8 +2,6 @@
 title: "Migration Guide"
 ---
 
-###### last updated: 2025-04-11
-
 # AlmaLinux Migration Guide
 
 This guide describes how to convert your operating system to AlmaLinux using the [AlmaLinux Migration tool](https://github.com/AlmaLinux/almalinux-deploy).
@@ -11,11 +9,11 @@ This guide describes how to convert your operating system to AlmaLinux using the
 What OSes can be converted:
 
 - CentOS 8
-- CentOS Stream 8, 9
+- CentOS Stream 8, 9, 10
 - Miracle Linux 8, 9
-- Oracle Linux 8, 9
-- RHEL 8, 9
-- Rocky Linux 8, 9
+- Oracle Linux 8, 9, 10
+- RHEL 8, 9, 10
+- Rocky Linux 8, 9, 10
 - Virtuozzo Linux (VZLinux) 8, 9
 
 This tool also supports cPanel, Plesk and DirectAdmin panels.
@@ -30,11 +28,15 @@ It's recommended to have a backup or snapshot of your system. There'll be a rest
 Make sure you are using reliable console access to your system. It's recommended that the migration tool is run from inside main console or via ssh.
 :::
 
+::: warning
+Ensure that the `/boot` partition has sufficient available space. The new AlmaLinux kernel installs alongside existing versions rather than replacing them. A 512 Mb partition is ok to accommodate three kernel versions.
+:::
+
 ## Migrating using AlmaLinux public repositories (Online Systems)
 
 These steps are suitable for standard migrations on online systems that can access official AlmaLinux repositories during the migration process.
 
-Convert your EL8 or EL9 system to AlmaLinux using CLI:
+Convert your EL8, EL9 or EL10 system to AlmaLinux using CLI:
 
 - Run the following command to update your operating system if needed:
 
@@ -138,7 +140,7 @@ Note, it's mandatory you download the `almalinux-release` package and public GPG
 
 **These steps are to be performed on the target system that will be migrated.**
 
-Convert your EL8 or EL9 system to AlmaLinux using CLI:
+Convert your EL8, EL9 or EL10 system to AlmaLinux using CLI:
 
 - It's highly recommended that your operating system have all the most recent packages.
 

@@ -2,8 +2,6 @@
 title: "Kitten 10"
 ---
 
-###### last updated: 2025-01-06
-
 # AlmaLinux OS Kitten 10 Release Notes
 
 ###### Note: Our kitten is not related to [this one](https://www.sandia.gov/ccr/software/kitten-lightweight-kernel/) :D
@@ -24,7 +22,7 @@ Distributed kernel version: 6.12.0-35.el10
 This release should not be used for production installations.
 :::
 
-<img src=/images/kitten10-screenshot.png width="75%" height="75%">
+<img src=/images/kitten10-screenshot.webp width="75%" height="75%">
 
 ## Providing Feedback and Getting Help
 
