@@ -56,7 +56,7 @@ Project/task tracker: [GitHub Issues link TBD]
 
 ## SIG members
 
-- Tristan Theroux – SIG Lead (IT Infrastructure & Security Director, SHED Inc.)
+- Tristan Theroux – SIG Lead (Senior Security System Administrator (Former IT Infrastructure & Security Director, SHED Inc.))
 - Cristian Slavik – Founding Member (NOX, VFX Supervisor)
 - Mike Owen – Founding Member (AWS M&E)
 - Eric Marundee - Founding Member (Independent)
@@ -66,7 +66,6 @@ Project/task tracker: [GitHub Issues link TBD]
 - Laurence Cymet - Founding Member ( Head of Technology, WeFX)
 - Timothy Toulis - Founding Member ( Systems Engineer, WeFX)
 - Neal Gompa – Founding Member (Engineer, Velocity Limitless)
-- Samuel Bissonnette - Contributor, Member (Pipeline TD, SHED Inc.)
 
 ## Additional information for SIG application approval
 
